@@ -1,0 +1,59 @@
+
+[
+    {
+        "id":0,
+        "image":"../assets/icons/adidas.png",
+        "title":"New Shopper",
+        "subtitle":"Enter your shop",
+        "time":"1m ago"
+    },
+    {
+        "id":1,
+        "image":"../assets/icons/adidas.png",
+        "title":"Coupon ADE456",
+        "subtitle":"used",
+        "time":"2m ago"
+    },
+    {
+        "id":2,
+        "image":"../assets/icons/adidas.png",
+        "title":"Coupon ADE456",
+        "subtitle":"used",
+        "time":"3m ago"
+    },
+    {
+        "id":3,
+        "image":"../assets/icons/adidas.png",
+        "title":"New Shopper",
+        "subtitle":"Enter your shop",
+        "time":"4m ago"
+    },
+    {
+        "id":4,
+        "image":"../assets/icons/adidas.png",
+        "title":"Coupon ADE456",
+        "subtitle":"used",
+        "time":"7m ago"
+    },
+    {
+        "id":5,
+        "image":"../assets/icons/adidas.png",
+        "title":"New Shopper",
+        "subtitle":"Enter your shop",
+        "time":"11m ago"
+    },
+    {
+        "id":6,
+        "image":"../assets/icons/adidas.png",
+        "title":"Coupon ADE456",
+        "subtitle":"used",
+        "time":"13m ago"
+    },
+    {
+        "id":7,
+        "image":"../assets/icons/adidas.png",
+        "title":"Coupon ADE456",
+        "subtitle":"used",
+        "time":"20m ago"
+    }
+]

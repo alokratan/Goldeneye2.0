@@ -1,0 +1,33 @@
+
+[
+    {
+        "id":0,
+        
+        "agegroup":"Children",
+        "selected":false
+    },
+    {
+        "id":1,
+        
+        "agegroup":"Teenage",
+        "selected":false
+    },
+    {
+        "id":2,
+        
+        "agegroup":"Youth",
+        "selected":false
+    },
+    {
+        "id":3,
+        
+        "agegroup":"Senior",
+        "selected":false
+    },
+    {
+        "id":4,
+        
+        "agegroup":"Adult",
+        "selected":false
+    }
+]

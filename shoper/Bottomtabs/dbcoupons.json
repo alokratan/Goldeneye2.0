@@ -1,0 +1,62 @@
+[
+    {
+        "id":0,
+        "faceid":"ADE435",
+        "percent":"50",
+        "shopname":"Adidas",
+        "shopadd":"10 Aditya Mega Mall",
+        "used":"Used 30 mins ago",
+        "expired":"Expired a month ago",
+        "validtill":"Thu, 30May22"
+    },
+    {
+        "id":1,
+        "faceid":"ADE436",
+        "percent":"40",
+        "shopname":"Bata",
+        "shopadd":"11 Aditya Mega Mall",
+        "used":"Used 17 mins ago",
+        "expired":"Expired 3 days ago",
+        "validtill":"Wed, 29Jan22"
+    },
+    {
+        "id":2,
+        "faceid":"ADE437",
+        "percent":"30",
+        "shopname":"Reliance",
+        "shopadd":"24 Aditya Mega Mall",
+        "used":"Used 4 mins ago",
+        "expired":"Expired a month ago",
+        "validtill":"Tue, 28May22"
+    },
+    {
+        "id":3,
+        "faceid":"ADE438",
+        "percent":"50",
+        "shopname":"Nestle",
+        "shopadd":"12 Aditya Mega Mall",
+        "used":"Used 34 mins ago",
+        "expired":"Expired 12 days  ago",
+        "validtill":"Thu, 26April22"
+    },
+    {
+        "id":4,
+        "faceid":"ADE439",
+        "percent":"30",
+        "shopname":"Burger King",
+        "shopadd":"18 Aditya Mega Mall",
+        "used":"Used 53 mins ago",
+        "expired":"Expired 28 days ago",
+        "validtill":"Wed, 12June22"
+    },
+    {
+        "id":5,
+        "faceid":"ADE440",
+        "percent":"40",
+        "shopname":"Dominos",
+        "shopadd":"27 Aditya Mega Mall",
+        "used":"Used 56 mins ago",
+        "expired":"Expired 2 month ago",
+        "validtill":"Thu, 30May22"
+    }
+]
