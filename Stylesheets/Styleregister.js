@@ -15,13 +15,14 @@ export const styles = StyleSheet.create({
 
         //  backgroundColor: 'grey',
         width: '100%',
-        height: height*0.07,
-        alignItems: 'baseline'
+        height: '10%',
+        alignItems: 'baseline',
+        justifyContent:'center'
     },
     midd: {
         width: '100%',
-        height: height *0.64,
-            // backgroundColor: 'red',
+        height: height *0.6,
+            //  backgroundColor: 'red',
         justifyContent: 'flex-start',
         alignItems: 'center'
     },

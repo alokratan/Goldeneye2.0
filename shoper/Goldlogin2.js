@@ -87,14 +87,14 @@ const Goldlogin = ({ navigation }) => {
                     password: password,
                 })
                     .then(result => {
-                        const userid = result.data.user_id
+                        // const userid = result.data.user_id
                         
                      
-                        AsyncStorage.setItem("Accessuserid", JSON.stringify(userid));
-                        // console.log(result);
-                        console.log(result.data.token)
-                        console.log(result.data)
-                        console.log(result.data.user_id)
+                        // AsyncStorage.setItem("Accessuserid", JSON.stringify(userid));
+                        // // console.log(result);
+                        // console.log(result.data.token)
+                        // console.log(result.data)
+                        // console.log(result.data.user_id)
 
 
                         if (result.status === 200) {
@@ -242,7 +242,6 @@ const Goldlogin = ({ navigation }) => {
                         <Text style={{ fontSize: 26, fontWeight: '900', marginVertical: 20, color: 'white' }}>
                             Login Successfully
                         </Text>
-
                     </View>
                 </View> : <View></View>
             }
@@ -269,8 +268,11 @@ const Goldlogin = ({ navigation }) => {
                         value={username}
                         onChangeText={text => alertusername(text)}
                     />
+                    <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
 
+                   
                     <FontAwesome5 name="mobile-alt" size={24} color="black" />
+                    </View>
                 </View>
 
                 {
@@ -294,7 +296,9 @@ const Goldlogin = ({ navigation }) => {
                         fontWeight='700'
                         onChangeText={text => alertpassword(text)}
                     />
+                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                     <MaterialCommunityIcons name={showpd ? "eye-off-outline" : "eye-outline"} onPress={showpdfun} size={24} color="black" />
+                </View>
                 </View>
                 {
 

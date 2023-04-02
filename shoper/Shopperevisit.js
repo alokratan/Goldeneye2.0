@@ -295,9 +295,9 @@ const styles = StyleSheet.create({
   },
   radiobtn4: {
     width: '100%',
-    //  backgroundColor:'green',
+    // backgroundColor:'green',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
 
   },

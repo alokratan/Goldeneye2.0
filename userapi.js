@@ -1,7 +1,7 @@
 import ApiManager from "./ApiManager";
 export const userapi = async data => {
     try {
-        const result = await ApiManager("/user/log-in/", {
+        const result = await ApiManager("/shopkeeper/user/log-in/", {
             method: "POST",
             headers: {
                 'content-type': "application/json",

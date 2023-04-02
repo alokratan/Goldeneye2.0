@@ -29,11 +29,11 @@ export const styles = StyleSheet.create({
 
     },
     midd2: {
-      //   backgroundColor: 'grey',
-        width: '90%',
+        // backgroundColor: 'grey',
+        width: '94%',
         height: height/4,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         alignItems: 'center',
 
     },
@@ -104,7 +104,7 @@ export const styles = StyleSheet.create({
     },
 
     image: {
-        width: '50%',
+        width: '54%',
         height: height
     },
     txt2: {

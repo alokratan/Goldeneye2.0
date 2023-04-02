@@ -24,8 +24,6 @@ const Goldregister = () => {
   const [password2, setPassword2] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState(null);
   const [profile_pic, setProfile_pic] = useState(null);
   const [image, setImage] = useState(null);
   const [img,setImg]=useState(true);
@@ -109,9 +107,6 @@ console.log("this is file info",image)
   const onChangeCityHandler = (city) => {
     setCity(city);
   };
-  const onChangeAgeHandler = (age) => {
-    setAge(age);
-  };
 
   const onChangegenderHandler = () => {
     setGender('Male')
@@ -137,12 +132,11 @@ console.log("this is file info",image)
     formData.append('email',email)
     formData.append('password',password)
     formData.append('password2',password2)
-    formData.append('gender',gender)
-    formData.append('profile_pic', {
-      uri,
-      name: 'profile_pic.jpg',
-      type: 'image/jpeg',
-    });
+    // formData.append('profile_pic', {
+    //   uri,
+    //   name: 'profile_pic.jpg',
+    //   type: 'image/jpeg',
+    // });
     if (!full_name.trim() || !username.trim() || !email.trim() || !password.trim() ||!password2.trim() ) {
        alert("* All fields are required");
       return;
@@ -151,7 +145,7 @@ console.log("this is file info",image)
 
     try {
       
-      let response = await axios.post('http://13.232.193.117:8000/user/register/', formData, {
+      let response = await axios.post('http://13.232.193.117:8000/shopkeeper/user/register/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -170,9 +164,10 @@ console.log("this is file info",image)
     setFull_name('');
         setUsername('');
         setEmail('');
+
         setPassword('');
         setPassword2('');
-         setGender('');
+         
 
       } else {
         throw new Error("some errors");
@@ -198,7 +193,7 @@ console.log("this is file info",image)
     function loginfun(){
         ToastAndroid.show('Please Wait...',1000);
         setTimeout(() => {
-                navigation.push('LoginHome')
+                navigation.navigate('LoginHome')
             }, 1000);
     }
     return (
@@ -259,7 +254,9 @@ console.log("this is file info",image)
                         value={full_name}
                         onChangeText={onChangeNameHandler}
                     />
+                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                           <FontAwesome5 name="user" size={22} color="black" />
+                </View>
                 </View>
                 <View style={styles.inputdiv}>
                     <TextInput
@@ -270,7 +267,9 @@ console.log("this is file info",image)
                         value={username}
                         onChangeText={onChangeuserNameHandler}
                     />
+                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                     <FontAwesome5 name="user" size={22} color="black" />
+                </View>
                 </View>
 
 
@@ -285,7 +284,9 @@ console.log("this is file info",image)
                         onChangeText={onChangeEmailHandler}
                     />
 
+<View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                     <MaterialIcons name="mail-outline" size={24} color="black" />
+                </View>
                 </View>
 
 
@@ -299,23 +300,11 @@ console.log("this is file info",image)
                         value={city}
                         onChangeText={onChangeCityHandler}
                     />
-
+ <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                     <Feather name="map-pin" size={22} color="black" />
                 </View>
-                <View style={styles.inputdiv}>
-                    <TextInput
-                        style={styles.input}
-                        cursorColor="black"
-                        placeholder="Age"
-                        fontWeight='700'
-                        keyboardType="number-pad"
-                        maxLength={2}
-                        value={age}
-                        onChangeText={onChangeAgeHandler}
-                    />
-
-                    <MaterialIcons name="date-range" size={24} color="black" />
                 </View>
+             
               
 
               
@@ -330,7 +319,10 @@ console.log("this is file info",image)
                         placeholder="Enter Password"
                         onChangeText={onChangepasswordHandler}
                     />
+                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                      <MaterialCommunityIcons name={showpd?"eye-off-outline":"eye-outline"} onPress={showpdfun} size={24} color="black" />
+                      
+                </View>
                 </View>
 
                 <View style={styles.inputdiv}>
@@ -343,27 +335,11 @@ console.log("this is file info",image)
                         placeholder="Confirm Password"
                         onChangeText={onChangepassword2Handler}
                     />
+                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
             <MaterialCommunityIcons name={showpd2?"eye-off-outline":"eye-outline"} onPress={showpdfun2} size={24} color="black" />
-           </View>
+           
+            </View></View>
           
-                <View style={styles.radiobtn}>
-                
-                <RadioButton
-                color='black'
-                    value="Male"
-                   
-                    status={checked === 'male' ? 'checked' : 'unchecked'}
-                    onPress={onChangegenderHandler}
-                /><Text style={{fontSize:17,paddingRight:20}}>Male</Text>
-                  
-                <RadioButton
-                 color='black'
-                    value="Female"
-                   
-                    status={checked === 'female' ? 'checked' : 'unchecked'}
-                    onPress={onChangegender2Handler}
-                /><Text style={{fontSize:17}}>Female</Text>
-            </View>
             </View>
           
             {/* <View style={styles.mediadiv}>

@@ -13,7 +13,7 @@ const EditProfile = () => {
         <Text style={{ fontSize: 20, fontWeight: '500' }}>Edit Profile</Text>
         <Ionicons name='ios-person-circle-outline' size={28} color="black" />
       </View>
-      {/* <View style={styles.basic}>
+       <View style={styles.basic}>
         <View style={{ width: '100%', marginBottom: '5%', paddingHorizontal: 10, justifyContent: 'space-between', alignItems: 'center', height: height * 0.05, flexDirection: 'row' }}>
           <Text style={{ fontSize: 20, fontWeight: '600' }}>Basic</Text>
           <Text style={{ fontSize: 16, textDecorationLine: 'underline', color: '#FFC72C' }}>Edit</Text>
@@ -36,7 +36,7 @@ const EditProfile = () => {
         </View>
         <View style={styles.rowbasic}>
           <Text style={{fontSize:16}}>
-          Shop No. : 2
+          Shop No 2
           </Text>
         </View>
         <View style={styles.rowbasic}>
@@ -49,29 +49,29 @@ const EditProfile = () => {
             MPIN
           </Text>
         </View>
-        <View style={styles.rowbasic}>
+        <View style={styles.rowbasic2}>
+          <View style={{width:'100%', backgroundColor:'#0001',justifyContent:'center',alignItems:'flex-start', height:40}}>
+
+         
           <Picker
-          style={{width:'100%',height:90,marginLeft:-15,}}
+          style={{  width:'100%'}}
           // ref={pickerRef}
           selectedValue={selectedvalue}
           onValueChange={(itemValue)=>setSelectedvalue(itemValue)}
-   
           >
-            <Picker.Item label="Category" value="Category" />
+
+            <Picker.Item label="Category"/>
             <Picker.Item label="option 2" value="option2" />
             <Picker.Item label="option 3" value="option3" />
-            <Picker.Item label="option 3" value="option3" />
-            <Picker.Item label="option 3" value="option3" />
-            <Picker.Item label="option 3" value="option3" />
+            <Picker.Item label="option 4" value="option4" />
+            <Picker.Item label="option 5" value="option5" />
+            <Picker.Item label="option 6" value="option6" />
+
+
           </Picker>
-        
+          </View>        
         </View>
-
-
-      </View> */}
-
-
-
+      </View> 
     </View>
   )
 }
@@ -109,6 +109,16 @@ const styles = StyleSheet.create({
     height: height * 0.04,
     // backgroundColor: '#0001',
     paddingLeft:10,
+    justifyContent:'center',
+    alignItems:'flex-start',
+    marginVertical:5,
+  },
+  rowbasic2: {
+    width: '94%',
+    borderBottomWidth: 1,
+    borderColor: '#0004',
+    height: height * 0.04,
+    // backgroundColor: '#0001',
     justifyContent:'center',
     alignItems:'flex-start',
     marginVertical:5,

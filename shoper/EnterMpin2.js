@@ -40,12 +40,12 @@ const Entermpin2 = ({navigation,route}) => {
     const [otp, setOtp] = useState({ 1: '', 2: '', 3: '', 4: '' });
     const abcd = { ...otp }
     const handleLogin = async() => {
-    const response = await axios.get(`http://13.232.193.117:8000/user/register/${tok2}`);
+    const response = await axios.get(`http://13.232.193.117:8000/shopkeeper/user/register/${tok2}`);
     var bas = Object.values(abcd)
     const abstr = bas.join('');
     console.log(abstr);
 try{
-    const response = await axios.post('http://13.232.193.117:8000/user/log-in-mpin/', {
+    const response = await axios.post('http://13.232.193.117:8000/shopkeeper/user/log-in-mpin/', {
         mpin:abstr,
       },{
           headers:{

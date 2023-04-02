@@ -13,7 +13,7 @@ const Dashboard = ({navigation}) => {
           
      </TouchableOpacity>
       </View>
-      {/* <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Preference wise</Text>
+       <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Preference wise</Text>
     <View style={styles.prefwise}>
       <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
         <Text>Category</Text>
@@ -113,7 +113,8 @@ const Dashboard = ({navigation}) => {
         <Text style={{color:'white',  textAlign:'center' }}>30%</Text>
         
       </View>
-    </View> */}
+    </View> 
+    
     </View>
   )
 }
