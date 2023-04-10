@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar, Text, Pressable, ScrollView, TextInput, ToastAndroid, Image, View } from 'react-native'
+import { StyleSheet, StatusBar, Modal, Text, Pressable, ScrollView, TextInput, ToastAndroid, Image, View } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Checkbox from 'expo-checkbox';
 import loginimg from '../assets/icons/loginimg.jpg'
@@ -30,7 +30,6 @@ const Goldlogin = ({ navigation }) => {
         else {
             setPhoneval(true)
         }
-
     }
     const alertpassword = (text) => {
         setPassword(text)
@@ -40,6 +39,7 @@ const Goldlogin = ({ navigation }) => {
 
         else {
             setPassval(true)
+            
         }
 
     }
@@ -53,15 +53,12 @@ const Goldlogin = ({ navigation }) => {
     }
     function agree() {
         if (isSelected2) {
-
             setSelection2(false)
         }
         else {
             setSelection2(true);
             setTermscon(true)
-
         }
-
     }
 
     function showpdfun() {
@@ -87,14 +84,14 @@ const Goldlogin = ({ navigation }) => {
                     password: password,
                 })
                     .then(result => {
-                        // const userid = result.data.user_id
-                        
-                     
-                        // AsyncStorage.setItem("Accessuserid", JSON.stringify(userid));
-                        // // console.log(result);
-                        // console.log(result.data.token)
-                        // console.log(result.data)
-                        // console.log(result.data.user_id)
+                        const userid = result.data.user_id
+
+
+                        AsyncStorage.setItem("Accessuserid", JSON.stringify(userid));
+                        // console.log(result);
+                        console.log(result.data.token)
+                        console.log(result.data)
+                        console.log(result.data.user_id)
 
 
                         if (result.status === 200) {
@@ -109,18 +106,18 @@ const Goldlogin = ({ navigation }) => {
                                 setUsername('');
                                 setPassword('');
                                 navigation.navigate('mpin2')
-                                
-                              
+
+
                             }, 1000);
                         }
-                        else if (result.status === 400){
+                        else if (result.status === 400) {
                             console.log('error is 400 or invalid creadentials')
-                         ToastAndroid.show('Please check the login credentials!!!', 1000)
-                       
+                            ToastAndroid.show('Please check the login credentials!!!', 1000)
+
                         }
 
 
-                         else if (!result.status == 200) {
+                        else if (!result.status == 200) {
 
                             setPhoneval(false)
                             setPassval(false)
@@ -128,24 +125,24 @@ const Goldlogin = ({ navigation }) => {
                             ToastAndroid.show('Invalid Credentials', 1000)
 
                         }
-                        
-                      
+
+
 
                     }).catch(err => {
-                         ToastAndroid.show('Please check the login credentials!!!', 1000)
-                       console.log(err);
-                       
+                        ToastAndroid.show('Please check the login credentials!!!', 1000)
+                        console.log(err);
 
-                    // ToastAndroid.show('Make Sure Your Server Is Live', 1000)
-                      if (err.status === 400){
-                        console.log(err.status);
+
+                        // ToastAndroid.show('Make Sure Your Server Is Live', 1000)
+                        if (err.status === 400) {
+                            console.log(err.status);
                             console.log('error is 400 or invalid creadentials')
-                         ToastAndroid.show('Please check the login credentials!!!', 1000)
-                       
+                            ToastAndroid.show('Please check the login credentials!!!', 1000)
+
                         }
-                    
-                 
-                       
+
+
+
                     })
 
             }
@@ -213,8 +210,45 @@ const Goldlogin = ({ navigation }) => {
                                 <ScrollView showsVerticalScrollIndicator={false} style={{ width: '90%' }}>
 
                                     <Text style={{ fontSize: 18, color: '#0009', fontWeight: '400' }}>
-                                        Golden Eye AI, Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum magni iure ducimus voluptatem id tenetur incidunt molestiae. Omnis aperiam odit, earum possimus, alias ex ut deleniti culpa tempora tenetur architecto cupiditate, molestiae enim rerum saepe dolorum illum. Atque fugiat soluta eos eum quos amet quas ab facere accusantium excepturi aspernatur similique quae, consequuntur vel velit quisquam officiis expedita a praesentium dicta quo quis? Velit quidem voluptatibus cupiditate. Nisi dolorem ipsum ut fugit natus dolores dolore tenetur sed eos eligendi, numquam doloremque expedita voluptatibus architecto maiores animi quaerat accusamus delectus debitis exercitationem ratione! Deserunt dolores officia ipsum. Officiis corrupti cumque voluptatibus fuga consectetur sequi recusandae, et itaque dignissimos molestiae vel error doloremque magnam animi voluptate. Tempore beatae natus ducimus soluta nesciunt nemo perferendis labore architecto quia magni nam cum nihil, voluptates aut ullam fugit molestiae et possimus excepturi porro adipisci sequi! Molestias temporibus consequatur omnis deleniti aliquid corporis, possimus voluptate? Suscipit, soluta! Rem quia repellendus minima? Architecto, officiis. Autem unde facilis at aliquam, iste consequatur atque facere nobis ut vel. Assumenda recusandae nesciunt esse cum. Rem minima ipsa, quia porro nisi unde velit at praesentium explicabo? Odio natus magnam commodi eius, laborum error. Ex ut vitae ad quam quae aperiam dolor!
-                                    </Text>
+                                    GoldenEyeAI Hardware Camera and Software Application is developed by ConsultIT Technologies Pvt Ltd.
+
+GoldenEyeAI enables shopkeepers where the Hardware Camera is installed to detect faces of Shoppers coming in their shop and suggest them discounts (Spot Discounts) based on their previous visit and shopping analytics in their self-shop and nearby shops in the same real estate or nearby.
+
+To ensure that the Shoppers can be communicated via the GoldenEyeAI app they are encouraged to download the app and upload a selfie which will be used for face detection and matching and further the linked mobile app will be used for sending discount notifications.
+
+{'\n'}
+{'\n'}
+
+1.GoldenEyeAI App and the mobile Camera and microphone accesses is used to allow users of the app to record using the camera sensor and microphone data photos, which is used for the purpose of taking photos and recording videos, to fulfil its purpose as a camera.
+{'\n\n'}
+2.Microphone permission is also used for the optional "Audio control" options.
+{'\n\n'}
+3.GoldenEyeAI Camera app requires permission at least for Android 9 and earlier to "access photos, media and files on your devices" (storage permission), as this permission is required for Android to save resultant files such as photos and videos to your device.
+{'\n\n'}
+4.Location permission is requested in order to deliver the optional geotagging features (for photos and videos, including stamp and subtitles options). When relevant option(s) are enabled, your device location will be stored in photo/video/subtitle files.
+{'\n\n'}
+5.Data will not be shared with any of the entities including shoppers or shop keepers and will be used only at the server side for face matching
+{'\n\n'}
+6.Data is encrypted at rest and in motion using military grade algorithms.
+{'\n\n'}
+7.At no point face data will be displayed anywhere in the app or any other camera point.
+{'\n\n'}
+8.Data handling procedures, data retention and deletion policies: GoldenEyeAI Camera does not transmit personal or sensitive information to third parties except shopping patterns.
+{'\n\n'}
+Since GoldenEyeAI Camera also uses operating system APIs, you should review relevant privacy policies such as for your device, manufacturer, operating system and/or Google accounts. For example:
+{'\n\n'}
+For versions 1.49.2 or earlier: the optional voice control option used the Android speech recognition service. When enabled, audio data is likely to be sent to remote servers by Android to perform speech recognition. This is subject to the Data Processing Addendum for Products where Google is a Data Processor, located at https://privacy.google.com/businesses/gdprprocessorterms/ , as updated from time to time. This option is no longer available in version 1.50 onwards.
+{'\n\n'}
+
+For versions 1.49.2 or earlier: The "addresses" option for photo stamp or video subtitles used the Android Geocoder API. When this option is enabled, in order to deliver this functionality the API transmits your device location data across the Internet to a third party (which may depend on what "backend services" are installed on your device). This option is no longer available in version 1.50 onwards
+.
+{'\n\n'}
+Apps/services such as cloud services on your device may auto-upload photos and videos that are saved on your device.
+
+{'\n\n'}
+If you have inquiries about the privacy policy, please contact me by email at ravi.r@consultit.co.in.
+{'\n\n'}
+Although GoldenEyeAI Camera app is ad-free: Third party vendors, including Google, may use means to get feedback about the app etc.        </Text>
 
                                 </ScrollView>
                             </View>
@@ -235,16 +269,16 @@ const Goldlogin = ({ navigation }) => {
                     : <View></View>
             }
 
-            {
-                success ? <View style={styles.successmain}>
-
+            <Modal animationType="slide" visible={success} transparent={true} >
+                <View style={styles.successmain}>
                     <View style={styles.sucess}>
                         <Text style={{ fontSize: 26, fontWeight: '900', marginVertical: 20, color: 'white' }}>
                             Login Successfully
                         </Text>
                     </View>
-                </View> : <View></View>
-            }
+                </View>
+            </Modal>
+
             <View style={styles.top}>
                 <Text style={styles.title}>Welcome</Text>
             </View>
@@ -268,11 +302,8 @@ const Goldlogin = ({ navigation }) => {
                         value={username}
                         onChangeText={text => alertusername(text)}
                     />
-                    <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
 
-                   
-                    <FontAwesome5 name="mobile-alt" size={24} color="black" />
-                    </View>
+             <FontAwesome5 name="user" size={22} color="black" />
                 </View>
 
                 {
@@ -296,9 +327,7 @@ const Goldlogin = ({ navigation }) => {
                         fontWeight='700'
                         onChangeText={text => alertpassword(text)}
                     />
-                     <View style={{width:'8%',justifyContent:'center',alignItems:'center'}}>
                     <MaterialCommunityIcons name={showpd ? "eye-off-outline" : "eye-outline"} onPress={showpdfun} size={24} color="black" />
-                </View>
                 </View>
                 {
 
@@ -315,7 +344,7 @@ const Goldlogin = ({ navigation }) => {
                 <View style={styles.midd3}>
 
                     <Pressable style={styles.txt2}
-                        onPress={() => navigation.navigate('Verify')}
+                        onPress={() => navigation.navigate('Forgotpass')}
                     >
                         <Text style={styles.txt3}
                         >
@@ -323,7 +352,7 @@ const Goldlogin = ({ navigation }) => {
                         </Text>
                     </Pressable>
                 </View>
-                <View style={styles.checkboxContainer}>
+                {/* <View style={styles.checkboxContainer}>
 
                     <Checkbox
                         value={isSelected}
@@ -335,7 +364,7 @@ const Goldlogin = ({ navigation }) => {
                         onPress={() => setSelection}
                     >Saved locally</Text>
 
-                </View>
+                </View> */}
                 <View style={styles.checkboxContainer}>
                     <Checkbox
                         value={isSelected2}

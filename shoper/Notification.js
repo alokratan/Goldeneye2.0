@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     boxnotification: {
-        height: height * 0.09,
+        height: height * 0.08,
         marginVertical: 10,
-        backgroundColor: '#FDECC0',
+        backgroundColor: '#FDEFCC',
         width: '90%',
         flexDirection:'row',
         borderRadius:5,
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
         // backgroundColor:'red',
         justifyContent:'center',
         width:'100%',
-        
         alignItems:'center'
     }
 })

@@ -13,7 +13,7 @@ export default [
     },
     {
         id: '3',
-        title: "Coupan Management",
+        title: "Coupon Management",
         image: require('./assets/icons/s3.png'),
     
     },

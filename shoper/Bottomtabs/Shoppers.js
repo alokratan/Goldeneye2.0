@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
     height: height * 0.16,
     borderRadius: 8,
     borderColor: '#0003',
-    borderWidth: 2,
+    borderWidth: 1,
     marginTop: height * 0.03,
     marginVertical:height*0.03,
 

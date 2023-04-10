@@ -341,33 +341,7 @@ console.log("this is file info",image)
             </View></View>
           
             </View>
-          
-            {/* <View style={styles.mediadiv}>
-                <Pressable style={styles.pressg}
-                    onPress={() => alert("Google Auth")}>
-                    <Text style={styles.txt1}>
-                        Google
-                    </Text>
-                    <View style={styles.facebook}>
-                        <Image
-                            style={[styles.face, { resizeMode: 'contain' }]}
-                            source={Google}
-                        />
-                    </View>
-                </Pressable>
-                <Pressable style={styles.pressf}
-                    onPress={() => alert("Facebook Auth")}>
-                    <Text style={styles.txt1}>
-                        Facebook
-                    </Text>
-                    <View style={styles.facebook}>
-                        <Image
-                            style={[styles.face, { resizeMode: 'contain' }]}
-                            source={facebook}
-                        />
-                    </View>
-                </Pressable>
-            </View> */}
+         
             <View style={styles.buttonn}>
                 <Pressable style={styles.pre}
                     onPress={anotherf}>

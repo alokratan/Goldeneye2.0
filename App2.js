@@ -22,7 +22,6 @@ const App2 = () => {
              borderRadius:5,
                backgroundColor:'black',
                letterSpacing: 0.5
-
                 }}>
                     {label}
                 </Text>
@@ -71,8 +70,7 @@ const App2 = () => {
             style={{backgroundColor:'white'}}
                 data={slides}
                 renderItem={({ item }) => {
-                    return (
-                        
+                    return (       
                         <View style={styles.container}>
                             <StatusBar
             animated={true}
@@ -80,8 +78,6 @@ const App2 = () => {
             showHideTransition={'slide'}
         //   hidden
         barStyle={'dark-content'}
-
-
             />
                             <Image
                                 style={[styles.image, { resizeMode: 'contain' }]}
@@ -109,9 +105,7 @@ const App2 = () => {
     }
    
 }
-
-export default App2
-
+export default App2;
 const styles = StyleSheet.create({
     container: {
         flex: 0.7,

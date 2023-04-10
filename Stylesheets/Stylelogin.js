@@ -1,3 +1,5 @@
+
+
 import {StyleSheet,StatusBar,Dimensions} from 'react-native'
 const width=Dimensions.get('window').width
 const height=Dimensions.get('window').height
@@ -22,25 +24,25 @@ export const styles = StyleSheet.create({
     midd: {
 
         width: '100%',
-        height: height / 1.8,
-       // backgroundColor: 'red',
+        height: height *0.6,
+        // backgroundColor: 'red',
         justifyContent: 'flex-start',
         alignItems: 'center'
 
     },
     midd2: {
-        // backgroundColor: 'grey',
-        width: '94%',
+      //   backgroundColor: 'grey',
+        width: '90%',
         height: height/4,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
 
     },
     midd3: {
-      //  backgroundColor: 'grey',
+        // backgroundColor: 'grey',
         width: '100%',
-        height: '15%',
+        height: '8%',
         justifyContent: 'flex-start',
         alignItems: 'flex-end',
 
@@ -55,7 +57,7 @@ export const styles = StyleSheet.create({
     // },
     checkboxContainer: {
         width: '100%',
-        // backgroundColor:'greens',
+    //  backgroundColor:'green',
         height: '8%',
         paddingLeft: 10,
         flexDirection: 'row',
@@ -63,8 +65,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     checkbox: {
-        width: 22,
-        height: 22,
+        width: 20,
+        height: 20,
         margin: 10,
         borderRadius: 5
     },
@@ -83,13 +85,14 @@ export const styles = StyleSheet.create({
     },
     title: {
         fontWeight: '900',
-        fontSize: 22,
-        marginBottom: 30,
-        marginLeft: 20
+        fontSize: height*0.025,
+        marginLeft: 20,
+        height:height*0.06,
+        // backgroundColor:'red'
     },
     title2: {
         fontWeight: '900',
-        fontSize: 19,
+        fontSize: height*0.022,
         position:'relative',
         zIndex:1,
         left:2,
@@ -104,7 +107,7 @@ export const styles = StyleSheet.create({
     },
 
     image: {
-        width: '54%',
+        width: '50%',
         height: height
     },
     txt2: {
@@ -228,7 +231,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: '80%',
         height: 500,
-        borderWidth: 3,
         justifyContent:'space-between'
     },
     successmain:{ 

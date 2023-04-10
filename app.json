@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GoldenEye2.0",
-    "slug": "GoldenEye2.0",
+    "name": "GoldenEyeshop",
+    "slug": "GoldenEyeshop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.alokratan.GoldenEyeshop"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ff35b5c6-4ae7-4a89-89b8-6998775c187c"
+      }
     }
   }
 }

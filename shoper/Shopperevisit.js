@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   header: {
-    // backgroundColor:'#0003',
+    //  backgroundColor:'#0003',
     width: '90%',
     height: height * 0.08,
     flexDirection: 'row',
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
   head: {
     //  backgroundColor:'red',
-    width: '100%',
+    width: '90%',
     height: height * 0.13,
     borderBottomColor: '#0004',
     borderBottomWidth: 2,

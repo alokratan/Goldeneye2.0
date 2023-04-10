@@ -13,9 +13,9 @@ export const styles = StyleSheet.create({
 
     top: {
 
-        //  backgroundColor: 'grey',
+        //   backgroundColor: 'grey',
         width: '100%',
-        height: '10%',
+        height: height*0.06,
         alignItems: 'baseline',
         justifyContent:'center'
     },
@@ -39,21 +39,8 @@ export const styles = StyleSheet.create({
 
 
 
-    checkboxContainer: {
-        width: '100%',
-        // backgroundColor:'black',
-        height: 40,
-        paddingLeft: 10,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
-    },
-    checkbox: {
-        width: 25,
-        height: 25,
-        margin: 10,
-        borderRadius: 5
-    },
+ 
+   
     inputdiv: {
         flexDirection: 'row',
         width: '90%',
@@ -61,30 +48,21 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomColor: 'grey',
         borderBottomWidth: 2,
-        marginVertical: 10
+         marginVertical: height*0.01,
     },
    
     input: {
         width: '85%',
-        height: 30,
-        fontSize: 18,
+        height: height*0.04,
+        fontSize: height*0.02,
     },
     title: {
         fontWeight: '900',
-        fontSize: 22,
-        marginBottom: 30,
-        marginLeft: 20
+        fontSize: height*0.025,
+        // marginBottom: 30,
+        marginLeft: width*0.05
     },
-    title2: {
-        fontWeight: '700',
-        fontSize: 17,
-
-    },
-    title3: {
-        fontWeight: '700',
-        fontSize: 22,
-
-    },
+   
 
     image: {
         width: '45%',
@@ -94,12 +72,7 @@ export const styles = StyleSheet.create({
         color: "white",
 
     },
-    txt3: {
-        color: "#F5B716",
-        width: '100%',
-        fontWeight: '700',
-        textDecorationLine: 'underline'
-    },
+  
     ttxt3: {
         color: "#F5B716",
         fontWeight: '900',
@@ -116,28 +89,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row'
     },
-    pressg: {
-        width: 140,
-        height: 40,
-        backgroundColor: '#EA4235',
-        marginHorizontal: 20,
-        borderRadius: 10,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'row'
-    },
-    pressf: {
-        width: 140,
-        height: 40,
-        backgroundColor: '#3664A2',
-        marginHorizontal: 20,
-        borderRadius: 10,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'row'
-    },
+  
+   
     presst: {
-        width: 140,
+        width: width*0.32,
         height: 40,
         backgroundColor: '#000000',
         marginHorizontal: 20,
@@ -158,26 +113,12 @@ export const styles = StyleSheet.create({
         fontWeight: '700'
     },
 
-    facebook: {
-        width: 34,
-        height: 34,
-        marginHorizontal: 3,
-        backgroundColor: 'white',
-        borderTopRightRadius: 8,
-        borderBottomRightRadius: 8,
-        borderRightColor: '#3664A2',
-        justifyContent: 'center',
-        alignItems: 'center'
+ 
 
-    },
-    face: {
-        width: 26,
-        height: 26
-    },
     buttonn: {
         width: '100%',
-        height: height / 4,
-        //  backgroundColor:'green',
+          height: height*0.25,
+        //   backgroundColor:'green',
         justifyContent: 'center',
         alignItems: 'center'
     },
