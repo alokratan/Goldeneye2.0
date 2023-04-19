@@ -51,6 +51,18 @@ export const styles = StyleSheet.create({
          marginVertical: height*0.01,
     },
    
+    inputdivpic: {
+        flexDirection: 'row',
+        width: 400,
+        height:height*0.06,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderBottomColor: 'grey',
+        backgroundColor:'red',
+        borderBottomWidth: 2,
+        marginVertical: height*0.01,
+    },
+   
     input: {
         width: '85%',
         height: height*0.04,
@@ -65,7 +77,7 @@ export const styles = StyleSheet.create({
    
 
     image: {
-        width: '45%',
+        width: width*0.46,
         height: height
     },
     txt2: {

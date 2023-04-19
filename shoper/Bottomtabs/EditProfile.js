@@ -49,6 +49,7 @@ const EditProfile = () => {
             MPIN
           </Text>
         </View>
+        
         <View style={styles.rowbasic2}>
           <View style={{width:'100%', backgroundColor:'#0001',justifyContent:'center',alignItems:'flex-start', height:40}}>
 

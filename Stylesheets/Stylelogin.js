@@ -107,7 +107,7 @@ export const styles = StyleSheet.create({
     },
 
     image: {
-        width: '50%',
+        width: width*0.46,
         height: height
     },
     txt2: {

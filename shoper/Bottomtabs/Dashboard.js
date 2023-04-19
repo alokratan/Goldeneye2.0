@@ -1,4 +1,4 @@
-import { StyleSheet,TouchableOpacity, Text,Dimensions, View } from 'react-native'
+import { StyleSheet,TouchableOpacity, Text,Dimensions, View, ScrollView } from 'react-native'
 import React from 'react'
 const height = Dimensions.get('window').height
 import { MaterialCommunityIcons} from '@expo/vector-icons';
@@ -8,11 +8,16 @@ const Dashboard = ({navigation}) => {
       <View style={styles.header}>
         <Text style={{ fontSize: 20, fontWeight: '500' }}>Table View</Text>
         <TouchableOpacity onPress={()=>navigation.navigate('notification')}>
-     
      <MaterialCommunityIcons name='bell-outline' size={28} color="black" />
-          
      </TouchableOpacity>
       </View>
+
+
+      <View style={styles.scrollviewdashboard}>
+      <ScrollView style={styles.scrollviewdash}>  
+      
+
+    
        <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Preference wise</Text>
     <View style={styles.prefwise}>
       <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
@@ -36,6 +41,8 @@ const Dashboard = ({navigation}) => {
         <Text style={{color:'white', width:"10%", textAlign:'center' }}>20</Text>
          </View>
     </View>
+
+    <View style={styles.saperator} ></View>
 
 
       <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Frequency wise</Text>
@@ -71,6 +78,7 @@ const Dashboard = ({navigation}) => {
         <Text style={{color:'white', width:"10%", textAlign:'center' }}>132</Text>
       </View>
     </View>
+    <View style={styles.saperator} ></View>
 
       <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Profile wise</Text>
 
@@ -95,6 +103,7 @@ const Dashboard = ({navigation}) => {
         <Text style={{color:'white', width:"10%", textAlign:'center' }}>25</Text>
       </View>
     </View>
+    <View style={styles.saperator} ></View>
       <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Percentage of Customers</Text>
 
     <View style={styles.prefwise}>
@@ -115,6 +124,43 @@ const Dashboard = ({navigation}) => {
       </View>
     </View> 
     
+    <View style={styles.prefwise}>
+      <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
+        <Text>Total</Text>
+        <Text>My Shop</Text>
+        <Text>Competitor</Text>
+        <Text>Mall</Text>
+         </View>
+    
+      <View style={[styles.rows,{borderBottomLeftRadius:8,borderBottomRightRadius:8,}]}>
+      
+        <Text style={{color:'white',  textAlign:'center' }}>90%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>20%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>40%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>30%</Text>
+        
+      </View>
+    </View> 
+    <View style={styles.prefwise}>
+      <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
+        <Text>Total</Text>
+        <Text>My Shop</Text>
+        <Text>Competitor</Text>
+        <Text>Mall</Text>
+         </View>
+    
+      <View style={[styles.rows,{borderBottomLeftRadius:8,borderBottomRightRadius:8,}]}>
+      
+        <Text style={{color:'white',  textAlign:'center' }}>90%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>20%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>40%</Text>
+        <Text style={{color:'white',  textAlign:'center' }}>30%</Text>
+        
+      </View>
+    </View> 
+  
+    </ScrollView>
+      </View>
     </View>
   )
 }
@@ -157,5 +203,20 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     marginTop:1.5,
     
+  },
+  saperator:{
+    backgroundColor:'#0002',
+    height:2,
+    width:'100%',
+    marginVertical:height*0.01,
+  },
+  scrollviewdash:{
+    width:'100%',
+  },
+  scrollviewdashboard:{
+    height:height*0.8,
+    width:'100%',
+    justifyContent:'center',
+    alignItems:'center'
   }
 })

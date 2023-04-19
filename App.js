@@ -19,8 +19,6 @@ else{
 }
     })
   },[])
-
-
   if(firsttime === null){
     return null;
   }

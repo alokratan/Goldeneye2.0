@@ -22,6 +22,8 @@ import Camerapp from '../shoper/Camera'
 import { useFocusEffect } from '@react-navigation/native';
 import Imagepost from '../shoper/Imagepost';
 import Notification from '../shoper/Notification';
+import OptionScreen from '../shoper/OptionScreen';
+import Registermall from '../shoper/Registermall';
 
 const Drawer = createDrawerNavigator();
 const Drawerscreens = (props) => {
@@ -85,6 +87,9 @@ const Drawerscreens = (props) => {
       {/* <Drawer.Screen options={{ headerShown: false }} name="mpin" component={Entermpin} /> */}
       <Drawer.Screen options={{ headerShown: false }} name="Setmpin" component={Setmpin} />
       <Drawer.Screen options={{ headerShown: false }} name="Resetmpin" component={Setmpin2} />
+      <Drawer.Screen options={{ headerShown: false }} name="Screenoption" component={OptionScreen} />
+      <Drawer.Screen options={{ headerShown: false }} name="Registermall" component={Registermall} />
+      
       <Drawer.Screen options={{ headerShown: false }} name="Forgotmpin" component={Forgotmpin} />
       <Drawer.Screen options={{ headerShown: false }} name="Forgotpass" component={Forgotpassword} />
       <Drawer.Screen options={{ headerShown: false }} name="Bottomtabs" component={Bottomtabs} />

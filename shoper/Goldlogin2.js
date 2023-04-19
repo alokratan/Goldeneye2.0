@@ -1,7 +1,7 @@
 import { StyleSheet, StatusBar, Modal, Text, Pressable, ScrollView, TextInput, ToastAndroid, Image, View } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Checkbox from 'expo-checkbox';
-import loginimg from '../assets/icons/loginimg.jpg'
+import loginimg from '../assets/icons/loginimg2.jpg'
 import facebook from '../assets/icons/Facebook_Logo_(2019).png.webp'
 import Google from '../assets/icons/unnamed.png'
 import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';

@@ -1,37 +1,51 @@
-import { StyleSheet, Text, Pressable, TextInput, ToastAndroid, StatusBar, Image, View } from 'react-native'
+import { StyleSheet, Text, Pressable, TextInput, ToastAndroid,Dimensions, StatusBar, Image, View } from 'react-native'
 import React, { useEffect, useCallback, useState } from 'react';
 import { ActivityIndicator, Colors } from 'react-native-paper';
+import { Picker } from '@react-native-picker/picker';
 import { styles } from '../Stylesheets/Styleregister'
-import loginimg from '../assets/icons/registerimg.jpg'
+import loginimg from '../assets/icons/shopicon.png'
 import facebook from '../assets/icons/Facebook_Logo_(2019).png.webp'
 import Google from '../assets/icons/unnamed.png';
-import { Entypo, Feather, MaterialIcons, MaterialCommunityIcons, FontAwesome5, SimpleLineIcons } from '@expo/vector-icons';
+import { Entypo, Feather,Ionicons,   MaterialIcons, MaterialCommunityIcons, FontAwesome5, SimpleLineIcons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { userapi2 } from '../userapi';
+
 const baseURL = 'http://geyeapp.consultit.co.in:8000'
 import { useFocusEffect } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+const width=Dimensions.get('window').width
+const height=Dimensions.get('window').height
 const Goldregister = () => {
   const navigation = useNavigation();
   // const {datauri} = route.params;
-  const [full_name, setFull_name] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [pderror, setPderror] = useState(true);
-  const [pderror2, setPderror2] = useState(true);
+  const [mall_name, setMall_name] = useState("");
+  const [shop_name, setShop_name] = useState("");
+  const [shop_address, setShop_address] = useState("");
+  const [shop_email,setShop_email]=useState("");
   const [correctphno,setCorrectphno]=useState(true);
   const [correcteml,setCorrecteml]=useState(true);
-  const [password2, setPassword2] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone_number, setPhone_number] = useState("");
-  const [city, setCity] = useState("");
+//   const [password2, setPassword2] = useState("");
+  const [camera_id, setCamera_id] = useState("");
   const [profile_pic, setProfile_pic] = useState(null);
   const [image, setImage] = useState(null);
   const [img, setImg] = useState(true);
   const [success, setSuccess] = useState(false);
+
+
+  const categories = ['Clothes', 'Shoes', 'Cosmatics','Electronics'];
+const subcategories = {
+  'Clothes': ['Shirt', 'Trousers', 'Jacket','Jeans'],
+  'Shoes': ['Sports', 'Sandal', 'Boot'],
+  'Cosmatics': ['Makeup', 'Skincare', 'Haircare'],
+  'Electronics': ['Mobiles', 'Monitor', 'TV','Soundbar','Fan','AC']
+};
+
+  const [category, setCategory] = useState([categories[0]]);
+const [sub_category, setSub_category] = useState(subcategories[categories[0]][0]);
+
 
   // const startLoading = () => {
   //   setLoading(true);
@@ -62,6 +76,18 @@ const Goldregister = () => {
   )
 )
 
+
+
+
+categories.map((a)=>{
+console.log(a)
+})
+
+
+subcategories[category].map((sub_category) => (
+  console.log(sub_category)
+))
+
   console.log("this is file info", image)
 
   const pickImage = async () => {
@@ -82,71 +108,53 @@ const Goldregister = () => {
   };
 
 
-  
 
-  const onChangeNameHandler = (full_name) => {
-    setFull_name(full_name);
+  const onChangemall_nameHandler = (mall_name) => {
+    setMall_name(mall_name);
+  };
+  const onChangeshop_nameHandler = (shop_name) => {
+    setShop_name(shop_name);
+  };
+  const onChangeshop_addressHandler = (shop_address) => {
+    setShop_address(shop_address);
+  };
+  const onChangecamera_idHandler = (camera_id) => {
+    setCamera_id(camera_id);
   };
 
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-function validateEmail(username) {
-  return emailRegex.test(username);
+function validateEmail(shop_email) {
+  return emailRegex.test(shop_email);
 }
 
-  const onChangeuserNameHandler = (username) => {
-    
-    if (validateEmail(username)) {
+  const onChangeshop_emailHandler = (shop_email) => {
+    if (validateEmail(shop_email)) {
       setCorrecteml(true)
   } else {
       // ToastAndroid.show('Please Enter 10 Digit Phone Number',2000);
       setCorrecteml(false)
   }
-    setUsername(username);
+    setShop_email(shop_email);
   };
-
-  const onChangepasswordHandler = (password) => {
-    if (password.toString().length <= 7) {
-      setPderror(false)
-  } else {
-      // ToastAndroid.show('Please Enter 10 Digit Phone Number',2000);
-      setPderror(true)
-  }
-
-    setPassword(password);
+//   const onChangePhoneHandler = (phone_number) => {
+//     if (phone_number.toString().length == 10) {
+//       setCorrectphno(true)
+//   } else {
+//       // ToastAndroid.show('Please Enter 10 Digit Phone Number',2000);
+//       setCorrectphno(false)
+//   }
+//     setPhone_number(phone_number);
+//   };
+  const onChangecategoryHandler = (category) => {
+    // setcategory(category);
+    setCategory(category)
+    console.log("hello",category)
   };
-  const onChangepassword2Handler = (password2) => {
-    if (password2===password) {
-      setPderror2(true)
-  } else {
-      // ToastAndroid.show('Please Enter 10 Digit Phone Number',2000);
-      setPderror2(false)
-  } 
-    setPassword2(password2);
+  const onChangesub_categoryHandler = (sub_category) => {
+    setSub_category(sub_category);
+    console.log("hello",sub_category)
   };
-
-  // const onChangeEmailHandler = (email) => {
-  //   setEmail(email);
-  // };
-
-  const phoneRegex = /^[0-9]{10}$/;
-
-function validatePhoneNumber(phoneNumber) {
-  return phoneRegex.test(phoneNumber);
-}
-
-  const onChangePhoneHandler = (phone_number) => {
-    if (validatePhoneNumber(phone_number)) {
-      setCorrectphno(true)
-  } else {
-      // ToastAndroid.show('Please Enter 10 Digit Phone Number',2000);
-      setCorrectphno(false)
-  }
-    setPhone_number(phone_number);
-  };
-  // const onChangeCityHandler = (city) => {
-  //   setCity(city);
-  // };
 
   const anotherf = () => {
     onSubmitFormHandler(profile_pic)
@@ -155,19 +163,20 @@ function validatePhoneNumber(phoneNumber) {
   const onSubmitFormHandler = async (uri) => {
 
     let formData = new FormData()
-    formData.append('full_name', full_name)
-     formData.append('username', username)
-    // formData.append('email', email)
-    formData.append('phone_number', phone_number)
-    // formData.append('city', city)
-    formData.append('password', password)
-    formData.append('password2', password2)
+    formData.append('mall_name', mall_name)
+     formData.append('shop_name', shop_name)
+    formData.append('shop_email', shop_email)
+    formData.append('shop_address', shop_address)
+     formData.append('camera_id', camera_id)
+     formData.append('category', category)
+     formData.append('sub_category', sub_category)
+    
     // formData.append('profile_pic', {
     //   uri,
     //   name: 'profile_pic.jpg',
     //   type: 'image/jpeg',
     // });
-    if (!full_name.trim()  || !username.trim() || !phone_number.trim() || !password.trim() || !password2.trim()) {
+    if (!mall_name.trim() || !shop_name.trim()||  !shop_address.trim() || !camera_id.trim()  || !shop_email.trim() || !category.trim() || !sub_category.trim()) {
       alert("* All fields are required");
       return;
     }
@@ -175,13 +184,13 @@ function validatePhoneNumber(phoneNumber) {
 
     try {
 
-      let response = await axios.post('http://13.232.193.117:8000/shopkeeper/user/register/', formData, {
+      let response = await axios.post('http://13.232.193.117:8000/shopkeeper/malls/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
 
         // alert(` You have created: ${JSON.stringify(response.data)}`);
         setSuccess(true)
@@ -191,14 +200,15 @@ function validatePhoneNumber(phoneNumber) {
           setSuccess(false)
           navigation.navigate('Setmpin')
         }, 500);
-        setFull_name('');
-         setUsername('');
-        // setEmail('');
-        setPhone_number('');
-        // setCity('');
+        setMall_name('');
+        setShop_name('');
+        setShop_address('');
+         setCamera_id('');
+         setShop_email('');
+        setCategory('');
+         setSub_category('');
 
-        setPassword('');
-        setPassword2('');
+        
 
 
       } else {
@@ -243,7 +253,7 @@ function validatePhoneNumber(phoneNumber) {
           </View>
       }
       <View style={styles.top}>
-        <Text style={styles.title}>Register</Text>
+        <Text style={styles.title}>Register Your Shop</Text>
       </View>
       <View style={styles.midd}>
         <View style={styles.midd2}>
@@ -254,13 +264,13 @@ function validatePhoneNumber(phoneNumber) {
             </View>
             <Text style={styles.txtake}>
               {/* TAKE A SELFIE & UPLOAD */}
-              SHOPKEEPER PHOTO
+              UPLOAD SHOP PHOTO
             </Text>
           </Pressable>
           {
             img ?
               <Image
-                style={[styles.image, { resizeMode: 'contain' }]}
+                style={{  width: width*0.42,height: width*0.42}}
                 source={loginimg}
 
               /> : image &&
@@ -277,27 +287,57 @@ function validatePhoneNumber(phoneNumber) {
           <TextInput
             style={styles.input}
             cursorColor="black"
-            placeholder="Enter Full Name"
+            placeholder="Facility Name"
             fontWeight='700'
-            value={full_name}
-            onChangeText={onChangeNameHandler}
+            value={mall_name}
+            onChangeText={onChangemall_nameHandler}
           />
           <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-            <FontAwesome5 name="user" size={22} color="black" />
+            <MaterialIcons name="store-mall-directory" size={24} color="black" />
           </View>
         </View>
         <View style={styles.inputdiv}>
           <TextInput
             style={styles.input}
-            keyboardType="email-address"
             cursorColor="black"
-            placeholder="Email"
+            placeholder="Shop Name"
             fontWeight='700'
-            value={username}
-            onChangeText={onChangeuserNameHandler}
+            value={shop_name}
+            onChangeText={onChangeshop_nameHandler}
           />
           <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-          <MaterialIcons name="mail-outline" size={24} color="black" />
+          <MaterialIcons name="format-color-text" size={24} color="black" />
+          </View>
+        </View>
+ 
+
+        <View style={styles.inputdiv}>
+          <TextInput
+            style={styles.input}
+            cursorColor="black"
+            placeholder="Shop Address"
+            fontWeight='700'
+            value={shop_address}
+            onChangeText={onChangeshop_addressHandler}
+          />
+
+          <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
+          <MaterialCommunityIcons name="store-marker" size={24} color="black" />
+          </View>
+        </View>
+        <View style={styles.inputdiv}>
+          <TextInput
+            style={styles.input}
+            cursorColor="black"
+            keyboardType="email-address"
+            placeholder="Shop Email"
+            fontWeight='700'
+            value={shop_email}
+            onChangeText={onChangeshop_emailHandler}
+          />
+
+          <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
+            <MaterialIcons name="mail-outline" size={24} color="black" />
           </View>
         </View>
         {
@@ -307,88 +347,74 @@ function validatePhoneNumber(phoneNumber) {
                             </Text>
                             
                             }
- {/* <View style={styles.inputdiv}>
-          <TextInput
-            style={styles.input}
-            cursorColor="black"
-            keyboardType="email-address"
-            placeholder="Email"
-            fontWeight='700'
-            value={email}
-            onChangeText={onChangeEmailHandler}
-          />
 
-          <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-            <MaterialIcons name="mail-outline" size={24} color="black" />
-          </View>
-        </View> */}
-
-
-        <View style={styles.inputdiv}>
-          <TextInput
-            style={styles.input}
-            cursorColor="black"
-            keyboardType="number-pad"
-            placeholder="Phone"
-            fontWeight='700'
-            value={phone_number}
-            onChangeText={onChangePhoneHandler}
-          />
-
-          <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-            <MaterialIcons name="smartphone" size={24} color="black" />
-          </View>
-        </View>
-        {
+        {/* {
                                 correctphno?  <Text style={{display:'none'}}>
                             </Text>:<Text style={{color:'red',paddingBottom:10,width:'84%'}}>
                             Please Enter 10 Digit Phone Number
                             </Text>
                             
-                            }
+                            } */}
 
         <View style={styles.inputdiv}>
           <TextInput
             style={styles.input}
             cursorColor="black"
             fontWeight='700'
-            value={password}
-            secureTextEntry={showpd ? true : false}
-            placeholder="Enter Password"
-            onChangeText={onChangepasswordHandler}
+            value={camera_id}
+            // secureTextEntry={showpd ? true : false}
+            placeholder="Golden Eye Code"
+            onChangeText={onChangecamera_idHandler}
           />
           <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-            <MaterialCommunityIcons name={showpd ? "eye-off-outline" : "eye-outline"} onPress={showpdfun} size={24} color="black" />
+            <FontAwesome5 name="laptop-code" onPress={showpdfun} size={22} color="black" />
           </View>
         </View>
 
-        {
-                                pderror?  <Text style={{display:'none'}}>
-                            </Text>:<Text style={{color:'red',paddingBottom:10,width:'84%'}}>
-                            Password must be at least 8 characters in lenght
-                            </Text>
-                            
-                            }
         <View style={styles.inputdiv}>
-          <TextInput
+          {/* <TextInput
             style={styles.input}
-            secureTextEntry={showpd2 ? true : false}
+            // secureTextEntry={showpd2 ? true : false}
             cursorColor="black"
             fontWeight='700'
-            value={password2}
-            placeholder="Confirm Password"
-            onChangeText={onChangepassword2Handler}
-          />
-          <View style={{ width: '8%', justifyContent: 'center', alignItems: 'center' }}>
-            <MaterialCommunityIcons name={showpd2 ? "eye-off-outline" : "eye-outline"} onPress={showpdfun2} size={24} color="black" />
-          </View></View>
-          {
-                                pderror2?  <Text style={{display:'none'}}>
-                            </Text>:<Text style={{color:'red',paddingBottom:10,width:'84%'}}>
-                            Password and Confirm Password does not match.
-                            </Text>
-                            
-                            }
+            value={category}
+            placeholder="Shop Category"
+            onChangeText={onChangecategoryHandler}
+          /> */}
+          <Picker
+             style={{width:'100%'}}
+  selectedValue={category}
+  onValueChange={onChangecategoryHandler}
+>
+  {categories.map((category) => (
+    <Picker.Item key={category} label={category} value={category} />
+  ))}
+</Picker>
+
+
+</View>
+       
+        <View style={styles.inputdiv}>
+          {/* <TextInput
+            style={styles.input}
+            // secureTextEntry={showpd2 ? true : false}
+            cursorColor="black"
+            fontWeight='700'
+            value={sub_category}
+            placeholder="Shop Sub Category"
+            onChangeText={onChangesub_categoryHandler}
+          /> */}
+
+<Picker
+   style={{  width:'100%'}}
+  selectedValue={sub_category}
+  onValueChange={onChangesub_categoryHandler}
+>
+  {subcategories[category].map((sub_category) => (
+    <Picker.Item key={sub_category} label={sub_category} value={sub_category} />
+  ))}
+</Picker>
+        </View>
 
       </View>
 

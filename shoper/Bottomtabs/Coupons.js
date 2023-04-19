@@ -18,10 +18,10 @@ function Available() {
               <Text style={{color:'white',fontWeight:'600'}}>
                 {item.faceid}
               </Text>
-              <Text style={{color:'white',fontSize:16 ,fontWeight:'500'}}>
+              <Text style={{width:'50%',color:'white',fontSize:16 ,fontWeight:'500'}}>
                 Status : <Text style={{color:'#1BE56E',fontSize:16 ,fontWeight:'500'}}>ACTIVE</Text>
               </Text>
-              <AntDesign name='closecircleo' size={20} color="white" />
+              <AntDesign name='closecircleo' size={19} color="white" />
             </View>
             <View style={styles.coupansmainbottom}>
               <View style={styles.maindots}>
@@ -42,7 +42,7 @@ function Available() {
                   <Text style={{color:'black',fontSize:14,fontWeight:'500'}}>
                   {item.shopadd}
                   </Text>
-                  <Text style={{width:'100%', textAlign:'right' ,color:'black',marginBottom:-6 ,fontSize:12,fontWeight:'500'}}>
+                  <Text style={{color:'black',marginBottom:-6 ,fontSize:12,fontWeight:'500'}}>
                   Valid till: {item.validtill}
                   </Text>
                 </View>
@@ -74,7 +74,7 @@ coupondb.map(item=>{
             {item.faceid}
             </Text>
            
-            <AntDesign name='closecircleo' size={20} color="white" />
+            <AntDesign name='closecircleo' size={19} color="white" />
           </View>
           <View style={[styles.coupansmainbottom,{backgroundColor:'#CEF5D6'}]}>
             <View style={styles.maindots}>
@@ -95,7 +95,7 @@ coupondb.map(item=>{
                 <Text style={{color:'black',fontSize:14,fontWeight:'500'}}>
                 {item.shopadd}
                 </Text>
-                <Text style={{width:'100%',fontStyle:'italic', textAlign:'right' ,color:'green',fontSize:12,fontWeight:'500'}}>
+                <Text style={{fontStyle:'italic' ,color:'green',fontSize:12,fontWeight:'500'}}>
                 {item.used}
                 </Text>
               </View>
@@ -126,8 +126,7 @@ coupondb.map(item=>{
             <Text style={{color:'white',fontWeight:'600'}}>
             {item.faceid}
             </Text>
-           
-            <AntDesign name='closecircleo' size={20} color="white" />
+            <AntDesign name='closecircleo' size={19} color="white" />
           </View>
           <View style={[styles.coupansmainbottom,{backgroundColor:'#FFE8AA'}]}>
             <View style={styles.maindots}>
@@ -148,7 +147,7 @@ coupondb.map(item=>{
                 <Text style={{color:'black',fontSize:14,fontWeight:'500'}}>
                 {item.shopadd}
                 </Text>
-                <Text style={{width:'100%',fontStyle:'italic', textAlign:'right' ,color:'red',fontSize:12,fontWeight:'500'}}>
+                <Text style={{fontStyle:'italic' ,color:'red',fontSize:12,fontWeight:'500'}}>
                 {item.expired}
                 </Text>
               </View>
@@ -387,7 +386,7 @@ const styles = StyleSheet.create({
     height:'100%',
     borderRightWidth: 2,
     borderStyle: 'dashed',
-    borderColor: 'grey',
+    borderColor: '#0004',
     justifyContent:'space-between',
     alignItems:'center'
 

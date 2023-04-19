@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     },
     image: {
         
-        width: '70%',
-        height: height/3,
+         width: '70%',
+        height: height*0.38,
         marginBottom:height/13,
     },
     title: {
