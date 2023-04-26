@@ -2,6 +2,7 @@ import { StyleSheet,TouchableOpacity, Text,Dimensions, View, ScrollView } from '
 import React from 'react'
 const height = Dimensions.get('window').height
 import { MaterialCommunityIcons} from '@expo/vector-icons';
+
 const Dashboard = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -15,9 +16,7 @@ const Dashboard = ({navigation}) => {
 
       <View style={styles.scrollviewdashboard}>
       <ScrollView style={styles.scrollviewdash}>  
-      
-
-    
+      <View style={styles.scrollviewdashboard2}>   
        <Text style={{width:"90%",fontWeight:'500',fontSize:16}}>Preference wise</Text>
     <View style={styles.prefwise}>
       <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
@@ -141,24 +140,8 @@ const Dashboard = ({navigation}) => {
         
       </View>
     </View> 
-    <View style={styles.prefwise}>
-      <View style={[styles.rows,{backgroundColor:'#FFC72C', borderTopLeftRadius:8, borderTopRightRadius:8 }]}>
-        <Text>Total</Text>
-        <Text>My Shop</Text>
-        <Text>Competitor</Text>
-        <Text>Mall</Text>
-         </View>
-    
-      <View style={[styles.rows,{borderBottomLeftRadius:8,borderBottomRightRadius:8,}]}>
-      
-        <Text style={{color:'white',  textAlign:'center' }}>90%</Text>
-        <Text style={{color:'white',  textAlign:'center' }}>20%</Text>
-        <Text style={{color:'white',  textAlign:'center' }}>40%</Text>
-        <Text style={{color:'white',  textAlign:'center' }}>30%</Text>
-        
-      </View>
-    </View> 
-  
+     
+    </View>
     </ScrollView>
       </View>
     </View>
@@ -214,8 +197,14 @@ const styles = StyleSheet.create({
     width:'100%',
   },
   scrollviewdashboard:{
-    height:height*0.8,
+    height:height*0.83,
     width:'100%',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  scrollviewdashboard2:{
+    
+    width:'96%',
     justifyContent:'center',
     alignItems:'center'
   }

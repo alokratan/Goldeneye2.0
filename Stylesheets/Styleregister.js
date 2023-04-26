@@ -241,8 +241,152 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 8,
     }
+,
+sucess2: {
+    backgroundColor: 'black',
+    width: height*0.06,
+    height: height*0.06,
+    borderWidth: 3,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:100,
+    shadowColor: "black",
+    shadowOffset: {
+        width: 20,
+        height: 10,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3.84,
+    elevation: 8,
+},
+activitybox: {
+    backgroundColor: 'white',
+    width: '30%',
+    height: '10%',
+    borderWidth: 3,
+    borderColor:'white',
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:10,
+    shadowColor: "black",
+    shadowOffset: {
+        width: 20,
+        height: 10,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3.84,
+    elevation: 8,
+},
+spinnerTextStyle: {
+    color: 'white',
+    fontSize:70
+  },
+  container3: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    position: 'absolute',
+    top: 0,
+    zIndex: 2,
+    borderColor: 'black',
+    shadowColor: "black",
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+    container4: {
+        backgroundColor: 'black',
+        width: '90%',
+        height: height*0.72,
+        borderWidth: 3,
+        borderColor:'#FFC72C',
+        justifyContent:'space-between',
+        alignItems:'center',
+        borderRadius:10,
+        shadowColor: "black",
+        shadowOffset: {
+            width: 20,
+            height: 10,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 3.84,
+        elevation: 8,
+    },
 
-
-
+  controls: {
+    height:height*0.2,
+    width:'100%',
+    // backgroundColor:'red',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  button: {
+    height: 40,
+    borderRadius: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#E9730F',
+    marginLeft: 10,
+  },
+  camera: {
+    flex: 1,
+    height:'100%',
+    width:'100%'
+  }, 
+  touchhhmain:{
+    width:'100%',
+    height:'60%',
+    // backgroundColor:'green',
+    justifyContent:'space-around',
+    alignItems:'center'
+  },
+  tochbutton:{
+    backgroundColor:'#ffffff',
+    width:'60%',
+    height:height*0.04,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:5
+  },
+  tochbutton2:{
+    backgroundColor:'#ffffff',
+    width:120,
+    height:120,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:100
+  },
+  tochbutton3:{
+    backgroundColor:'#ffffff',
+    width:60,
+    height:60,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:100
+  },
+  texttouch:{
+    fontSize:20,
+    fontWeight:'600',
+    textTransform:'uppercase',
+  },
+  maintopcamera:{
+    //  backgroundColor:'red',
+    width:'100%',
+    height:height*0.06,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  accesscamera:{
+    flex:1,
+    backgroundColor:'#0004',
+    justifyContent:'center',
+    alignItems:'center',
+  }
 })
 

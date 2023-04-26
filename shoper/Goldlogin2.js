@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar, Modal, Text, Pressable, ScrollView, TextInput, ToastAndroid, Image, View } from 'react-native'
+import { StyleSheet, StatusBar, Modal,ActivityIndicator, Text, Pressable, ScrollView, TextInput, ToastAndroid, Image, View } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Checkbox from 'expo-checkbox';
 import loginimg from '../assets/icons/loginimg2.jpg'
@@ -20,6 +20,7 @@ const Goldlogin = ({ navigation }) => {
     const [passval, setPassval] = useState(true);
     const [termscon, setTermscon] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const alertusername = (text) => {
         setUsername(text)
@@ -79,6 +80,7 @@ const Goldlogin = ({ navigation }) => {
         }
         else {
             if (isSelected2) {
+                setIsLoading(true)
                 userapi({
                     username: username,
                     password: password,
@@ -95,6 +97,7 @@ const Goldlogin = ({ navigation }) => {
 
 
                         if (result.status === 200) {
+                            setIsLoading(false)
                             setPhoneval(true)
                             setPassval(true)
                             AsyncStorage.setItem('AccessToken', result.data.token);
@@ -111,6 +114,7 @@ const Goldlogin = ({ navigation }) => {
                             }, 1000);
                         }
                         else if (result.status === 400) {
+                            setIsLoading(false)
                             console.log('error is 400 or invalid creadentials')
                             ToastAndroid.show('Please check the login credentials!!!', 1000)
 
@@ -118,7 +122,7 @@ const Goldlogin = ({ navigation }) => {
 
 
                         else if (!result.status == 200) {
-
+                            setIsLoading(false)
                             setPhoneval(false)
                             setPassval(false)
 
@@ -129,6 +133,7 @@ const Goldlogin = ({ navigation }) => {
 
 
                     }).catch(err => {
+                        setIsLoading(false)
                         ToastAndroid.show('Please check the login credentials!!!', 1000)
                         console.log(err);
 
@@ -136,6 +141,7 @@ const Goldlogin = ({ navigation }) => {
                         // ToastAndroid.show('Make Sure Your Server Is Live', 1000)
                         if (err.status === 400) {
                             console.log(err.status);
+                            setIsLoading(false)
                             console.log('error is 400 or invalid creadentials')
                             ToastAndroid.show('Please check the login credentials!!!', 1000)
 
@@ -194,9 +200,16 @@ const Goldlogin = ({ navigation }) => {
 
 
             />
-            {
-                termscon ?
-                    <View style={styles.termsdivmain}>
+           <Modal animationType="fade" visible={success} transparent={true} >
+            <View style={styles.successmain}>
+                    <View style={styles.sucess2}>
+                    
+                    <ActivityIndicator size='large' color="#FFC72C" />
+                    </View>
+                </View>
+            </Modal>
+            <Modal animationType="fade" visible={termscon} transparent={true} >
+           <View style={styles.termsdivmain}>
 
                         <View style={styles.termsdiv}>
 
@@ -266,10 +279,9 @@ Although GoldenEyeAI Camera app is ad-free: Third party vendors, including Googl
                             </View>
                         </View>
                     </View>
-                    : <View></View>
-            }
+             </Modal>
 
-            <Modal animationType="slide" visible={success} transparent={true} >
+            <Modal animationType="fade" visible={success} transparent={true} >
                 <View style={styles.successmain}>
                     <View style={styles.sucess}>
                         <Text style={{ fontSize: 26, fontWeight: '900', marginVertical: 20, color: 'white' }}>
@@ -277,7 +289,8 @@ Although GoldenEyeAI Camera app is ad-free: Third party vendors, including Googl
                         </Text>
                     </View>
                 </View>
-            </Modal>
+                </Modal>
+          
 
             <View style={styles.top}>
                 <Text style={styles.title}>Welcome</Text>

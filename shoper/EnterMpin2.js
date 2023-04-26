@@ -40,7 +40,7 @@ const Entermpin2 = ({navigation,route}) => {
     const [otp, setOtp] = useState({ 1: '', 2: '', 3: '', 4: '' });
     const abcd = { ...otp }
     const handleLogin = async() => {
-    const response = await axios.get(`http://13.232.193.117:8000/shopkeeper/user/register/${tok2}`);
+    // const respons = await axios.get(`http://13.232.193.117:8000/shopkeeper/user/register/${tok2}`);
     var bas = Object.values(abcd)
     const abstr = bas.join('');
     console.log(abstr);
@@ -63,12 +63,10 @@ try{
       console.log(otp);
      
     //   setOtp(0)
-      setTimeout(() => {
-        setSuccess(false)
+          setSuccess(false)
         
           navigation.navigate('Bottomtabs')
-        
-      }, 2000);
+   
     }
     else{
     //   alert(`The MPIN you have entered is incorrect:  ${abstr}`)
@@ -89,10 +87,10 @@ catch (error) {
 
   }    
     
-  console.log("all data",JSON.stringify(response.data.full_name));
-  const tokedata=JSON.stringify(response.data)
-  console.log('ttt',tokedata);
-    AsyncStorage.setItem('AccessTokendata', tokedata);
+//   console.log("all data",JSON.stringify(response.data.full_name));
+//   const tokedata=JSON.stringify(response.data)
+//   console.log('ttt',tokedata);
+//     AsyncStorage.setItem('AccessTokendata', tokedata);
 
   };
 

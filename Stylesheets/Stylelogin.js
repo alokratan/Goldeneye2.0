@@ -264,6 +264,24 @@ export const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 3.84,
         elevation: 8,
-    }
+    },
+    sucess2: {
+        backgroundColor: 'black',
+        width: height*0.06,
+        height: height*0.06,
+        borderWidth: 3,
+        borderColor:'white',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:100,
+        shadowColor: "black",
+        shadowOffset: {
+            width: 20,
+            height: 10,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 3.84,
+        elevation: 8,
+    },
 
 })

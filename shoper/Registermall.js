@@ -146,14 +146,14 @@ function validateEmail(shop_email) {
 //   }
 //     setPhone_number(phone_number);
 //   };
-  const onChangecategoryHandler = (category) => {
+  const onChangecategoryHandler = (value) => {
     // setcategory(category);
-    setCategory(category)
-    console.log("hello",category)
+    setCategory(value)
+    console.log("hello",value)
   };
-  const onChangesub_categoryHandler = (sub_category) => {
-    setSub_category(sub_category);
-    console.log("hello",sub_category)
+  const onChangesub_categoryHandler = (value) => {
+    setSub_category(value);
+    console.log("hello",value)
   };
 
   const anotherf = () => {
@@ -235,7 +235,7 @@ function validateEmail(shop_email) {
   function loginfun() {
     ToastAndroid.show('Please Wait...', 1000);
     setTimeout(() => {
-      navigation.navigate('LoginHome')
+      navigation.navigate('Bottomtabs')
     }, 1000);
   }
   return (

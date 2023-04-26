@@ -1,19 +1,24 @@
-import { StyleSheet, Text, Pressable, TextInput, ToastAndroid, StatusBar, Image, View } from 'react-native'
-import React, { useEffect, useCallback, useState } from 'react';
-import { ActivityIndicator, Colors } from 'react-native-paper';
+import { StyleSheet, Text,TouchableOpacity,ActivityIndicator, Pressable,Modal, TextInput,Dimensions, ToastAndroid, StatusBar, Image, View } from 'react-native'
+import React, { useEffect, useCallback,useRef, useState } from 'react';
+import {  Colors } from 'react-native-paper';
 import { styles } from '../Stylesheets/Styleregister'
 import loginimg from '../assets/icons/registerimg.jpg'
 import facebook from '../assets/icons/Facebook_Logo_(2019).png.webp'
 import Google from '../assets/icons/unnamed.png';
-import { Entypo, Feather, MaterialIcons, MaterialCommunityIcons, FontAwesome5, SimpleLineIcons } from '@expo/vector-icons';
+import { Entypo, Feather, MaterialIcons,FontAwesome, MaterialCommunityIcons, FontAwesome5, SimpleLineIcons } from '@expo/vector-icons';
 import { RadioButton } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
+import { Camera} from 'expo-camera';
+import * as FaceDetector from 'expo-face-detector';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { userapi2 } from '../userapi';
 const baseURL = 'http://geyeapp.consultit.co.in:8000'
 import { useFocusEffect } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+const width=Dimensions.get('window').width
+const height=Dimensions.get('window').height
+import imagee from '../assets/adaptive-icon.png'
 const Goldregister = () => {
   const navigation = useNavigation();
   // const {datauri} = route.params;
@@ -32,6 +37,10 @@ const Goldregister = () => {
   const [image, setImage] = useState(null);
   const [img, setImg] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [ismodel, setIsmodel] = useState(false);
+  const [hasCameraPermission, setHasCameraPermission] = useState();
+  const[ isFaceDetected,setIsFaceDetected ]=useState(null) 
 
   // const startLoading = () => {
   //   setLoading(true);
@@ -44,6 +53,13 @@ const Goldregister = () => {
   useFocusEffect(
     useCallback(
       () => {
+
+        (
+          async()=>{
+            const {status} =await Camera.requestCameraPermissionsAsync();
+            setHasCameraPermission(status==='granted');
+          }
+        )();
         // AsyncStorage.removeItem('Accessfileuri')
         // pickimage2
         AsyncStorage.getItem('Accessfileuri').then(value => {
@@ -61,6 +77,186 @@ const Goldregister = () => {
     [],
   )
 )
+
+function opencameramodel() {
+  setIsmodel(true);
+}
+
+
+const handleFacesDetected = ({ faces }) => {
+  console.log(faces);
+  if (faces.length > 0) {
+      console.log('Face detected!');
+      setIsFaceDetected(true)
+      // Do something with the detected face
+    } else {
+      console.log('No face detected');
+      setIsFaceDetected(false)
+    }
+};
+
+
+function Modelfunction() {
+  const [type, setType] = useState(Camera.Constants.Type.front);
+ 
+  const cameraRef = useRef(null);
+  const takePicture = async () => {
+      if (cameraRef) {
+          try {
+             
+              const data = await cameraRef.current.takePictureAsync();
+              ToastAndroid.show('Great',2000)
+              console.log(data);
+              console.log("this is uri", data.uri)
+              setImage(data.uri);
+          } catch (error) {
+              console.log(error);
+          }
+      }
+  };
+
+  const nottakepicture = ()=>{
+      ToastAndroid.show('Plese Show Your Face ..',2000)
+  }
+  
+  const savePicture = async () => {
+      if (image) {
+          try {
+              // const asset = await MediaLibrary.createAssetAsync(image);
+
+              
+              AsyncStorage.setItem('Accessfileuri', image);
+              console.log(image);
+              // alert('Picture saved! 🎉');
+              //  setImage(null);
+
+              console.log('saved successfully');
+              setIsmodel(false)
+          } catch (error) {
+              console.log(error);
+          }
+      }
+  };
+
+  const pickImage = async () => {
+      let resultss = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [1,1],
+        quality: 1,
+      });
+      setProfile_pic(resultss)
+     
+      if (!resultss.canceled) {
+          setImage(resultss.assets[0].uri);
+        console.log(resultss.assets[0].uri)
+        setProfile_pic(resultss.assets[0].uri)
+      }
+    };
+  console.log('this is model')
+  return (
+
+      <View style={styles.container3}>
+         <View style={styles.container4}>
+          <View style={styles.maintopcamera}>
+
+              <Text style={{ color: '#FFC72C', fontSize: 30, fontWeight: '900', width: '100%', textAlign: 'center' }}>GOLDENEYE</Text>
+
+          </View>
+          {!image ?
+          
+          
+          (
+              <Camera
+                  style={styles.camera}
+                  type={type}
+                  ref={cameraRef}
+                  quality={0.4}
+                  
+                  onFacesDetected={handleFacesDetected}
+                  faceDetectorSettings={{
+                  //   mode: FaceDetector.FaceDetectorMode.accurate,
+                  //   detectLandmarks: FaceDetector.FaceDetectorLandmarks.all,
+                    runClassifications: FaceDetector.FaceDetectorClassifications.none,
+                     minDetectionInterval: 1000,
+                    
+                    tracking: true,
+                  }}
+              >
+
+                  <View>
+                  
+               
+                  <View style={{backgroundColor:'#0008',width:'100%',justifyContent:'center',alignItems:'center' ,  height:30}}>
+{isFaceDetected ? (
+<Text style={{color:'#FFC72C',fontWeight:'600'}}>Face detected</Text>
+) : (
+<Text style={{color:'#FFC72C',fontWeight:'600'}}>No face detected</Text>
+)}
+</View>
+
+<Image style={{width:height*0.08,height:height*0.08}} source={imagee}/>
+               
+                      {/* <TouchableOpacity style={{ paddingLeft: 10 }} >
+
+                          <Ionicons name='camera-reverse' color={'grey'} size={40} />
+
+                      </TouchableOpacity> */}
+
+                  </View>
+              </Camera>
+          ) : (
+              <Image  source={{ uri: image }} style={[styles.camera, { transform: [{ scaleX: -1 }] }]} />
+          )}
+
+          <View style={styles.controls}>
+              {image ? (
+                  <View
+                      style={styles.touchhhmain}
+                  >
+                      <TouchableOpacity style={styles.tochbutton} onPress={() => setImage(null)}>
+                          <Text style={styles.texttouch}>Re-take
+                          </Text>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity style={styles.tochbutton} onPress={savePicture}>
+                          <Text style={styles.texttouch}>Upload
+                          </Text>
+                      </TouchableOpacity>
+
+
+
+                  </View>
+              ) : (
+                  <View style={{width:'100%', flexDirection: 'row',justifyContent:'space-evenly',alignItems:'center' }}>
+
+                      <TouchableOpacity style={styles.tochbutton3} onPress={pickImage}>
+                     
+                      {/* <TouchableOpacity style={styles.tochbutton3} onPress={() => {
+                          setType(
+                              type === CameraType.front ? CameraType.back : CameraType.front
+                          );
+                      }}> */}
+
+                          <FontAwesome name='image' size={26} />
+                      </TouchableOpacity>
+                      <TouchableOpacity style={styles.tochbutton2} onPress={isFaceDetected? takePicture:nottakepicture}>
+                          <MaterialIcons name='photo-camera' size={60} />
+                      </TouchableOpacity>
+                      <TouchableOpacity style={styles.tochbutton3} onPress={()=>{setIsmodel(false);}}>
+                          <MaterialCommunityIcons name='close-circle-outline' size={30} />
+                      </TouchableOpacity>
+                  </View>
+
+              )}
+          </View>
+          </View>
+      </View>
+
+  )
+}
+
+
 
   console.log("this is file info", image)
 
@@ -149,6 +345,8 @@ function validatePhoneNumber(phoneNumber) {
   // };
 
   const anotherf = () => {
+    ToastAndroid.show('Please Wait...', 2000);
+    setIsLoading(true)
     onSubmitFormHandler(profile_pic)
   }
 
@@ -169,6 +367,7 @@ function validatePhoneNumber(phoneNumber) {
     // });
     if (!full_name.trim()  || !username.trim() || !phone_number.trim() || !password.trim() || !password2.trim()) {
       alert("* All fields are required");
+      setIsLoading(false)
       return;
     }
 
@@ -182,7 +381,7 @@ function validatePhoneNumber(phoneNumber) {
       });
 
       if (response.status === 200) {
-
+        setIsLoading(false)
         // alert(` You have created: ${JSON.stringify(response.data)}`);
         setSuccess(true)
         AsyncStorage.setItem('AccessToken', response.data.token);
@@ -205,6 +404,7 @@ function validatePhoneNumber(phoneNumber) {
         throw new Error("some errors");
       }
     } catch (error) {
+      setIsLoading(false)
       console.log(error)
       console.log(error)
     }
@@ -230,6 +430,17 @@ function validatePhoneNumber(phoneNumber) {
   }
   return (
     <View style={styles.container}>
+      <Modal animationType="fade" visible={ismodel} transparent={true}>
+                <Modelfunction />
+            </Modal>
+      <Modal animationType="fade" visible={isLoading} transparent={true}>
+      <View style={styles.successmain}>
+                    <View style={styles.sucess2}>
+                    
+                    <ActivityIndicator size='large' color="#FFC72C" />
+                    </View>
+                </View>
+            </Modal>
       {
         success ? 
           <View style={styles.successmain}>
@@ -248,7 +459,7 @@ function validatePhoneNumber(phoneNumber) {
       <View style={styles.midd}>
         <View style={styles.midd2}>
           <Pressable style={styles.presst}
-            onPress={() => navigation.navigate('Camerapp')}>
+            onPress={opencameramodel}>
             <View style={styles.camicon}>
               <Entypo name="camera" size={15} color="black" />
             </View>
